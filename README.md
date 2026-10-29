@@ -1,6 +1,9 @@
-# ERODNet firmware
+# ERODNet hardware and firmware
 
-Bare-metal C driver for the `e_rodnet` radar object-detection IP (AXI4-Lite CSR block), with a target wrapper and a test.
+Synthesizable SystemVerilog for the `e_rodnet` radar object-detection accelerator, plus the bare-metal C driver (AXI4-Lite CSR block), a target wrapper and a test.
+
+- `rtl/core/`: the accelerator (FFT, beamforming, ConvFormer blocks, normalisation, activation, pooling, detection, CSR and AXI interfaces, lookup tables as `.mem`)
+- `rtl/dma/`: the DMA controller and wrapper that feed it (`filelist_e_rodnet.f` lists the compile order; its paths are relative to the original project layout)
 
 - `drivers/e_rodnet.c`, `include/e_rodnet.h`, `include/e_rodnet_regs.h`: driver API and register map
 - `drivers/e_rodnet_target.c`, `include/e_rodnet_target.h`: target/platform wrapper
